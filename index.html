@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Culto de Ensino da Palavra</title>
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Culto CEP">
+<meta name="application-name" content="Culto CEP">
+<meta name="theme-color" content="#c9a84c">
+<meta name="msapplication-TileColor" content="#0a0a1a">
+<meta name="msapplication-TileImage" content="icons/icon-144x144.png">
+
+<!-- SEO / Share -->
+<meta name="description" content="Controle de presença para o Culto de Ensino da Palavra — Imersão Escatológica 2026">
+<meta name="author" content="Culto de Ensino da Palavra">
+<meta property="og:title" content="Culto de Ensino da Palavra">
+<meta property="og:description" content="Controle de presença, frequência e certificados — Sextas-Feiras 2026">
+<meta property="og:type" content="website">
+<meta property="og:image" content="icons/icon-512x512.png">
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="icon" sizes="192x192" href="icons/icon-192x192.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --gold-dark: #8a6a1f;
+  --deep: #0a0a1a;
+  --deep2: #0f1225;
+  --deep3: #161b35;
+  --deep4: #1e2548;
+  --purple: #2a1f5e;
+  --purple2: #3d2e8a;
+  --accent: #7c5cbf;
+  --text: #e8e0cc;
+  --text2: #b8a98a;
+  --green: #2ecc71;
+  --red: #e74c3c;
+  --blue: #3498db;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Crimson Pro', serif;
+  background: var(--deep);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND */
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 20%, rgba(42,31,94,0.4) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(201,168,76,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, var(--deep2) 0%, var(--deep) 100%);
+  z-index:-1;
+}
+
+/* HEADER */
+.header {
+  text-align:center;
+  padding: 2rem 1rem 1rem;
+  position:relative;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+.header::after {
+  content:'';
+  position:absolute;
+  bottom:0; left:50%; transform:translateX(-50%);
+  width:200px; height:1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.logo-cross {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+  animation: glow 3s ease-in-out infinite;
+}
+@keyframes glow {
+  0%,100%{text-shadow:0 0 10px rgba(201,168,76,0.5);}
+  50%{text-shadow:0 0 30px rgba(201,168,76,0.9), 0 0 60px rgba(201,168,76,0.4);}
+}
+.header h1 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1rem, 3vw, 1.6rem);
+  color: var(--gold-light);
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 20px rgba(201,168,76,0.4);
+}
+.header .subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  color: var(--text2);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+.church-info-bar {
+  display:flex;
+  justify-content:center;
+  gap:2rem;
+  margin-top:0.8rem;
+  flex-wrap:wrap;
+  font-size:0.85rem;
+  color: var(--text2);
+}
+.church-info-bar span { font-style:italic; color:var(--gold-light); }
+
+/* NAV */
+nav {
+  display:flex;
+  justify-content:center;
+  gap:0.3rem;
+  padding:1rem 0.5rem;
+  flex-wrap:wrap;
+  position:sticky;
+  top:0;
+  background: rgba(10,10,26,0.95);
+  backdrop-filter:blur(10px);
+  z-index:100;
+  border-bottom:1px solid rgba(201,168,76,0.15);
+}
+.nav-btn {
+  font-family:'Cinzel', serif;
+  font-size:0.72rem;
+  letter-spacing:0.08em;
+  padding:0.5rem 1rem;
+  background:transparent;
+  color:var(--text2);
+  border:1px solid rgba(201,168,76,0.2);
+  border-radius:3px;
+  cursor:pointer;
+  transition:all 0.3s;
+  text-transform:uppercase;
+}
+.nav-btn:hover, .nav-btn.active {
+  background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
+  color:var(--gold-light);
+  border-color:var(--gold);
+  box-shadow:0 0 15px rgba(201,168,76,0.2);
+}
+
+/* PANELS */
+.panel { display:none; padding:1.5rem; max-width:1100px; margin:0 auto; }
+.panel.active { display:block; }
+
+/* CARDS */
+.card {
+  background: linear-gradient(135deg, rgba(22,27,53,0.9), rgba(15,18,37,0.9));
+  border:1px solid rgba(201,168,76,0.2);
+  border-radius:8px;
+  padding:1.5rem;
+  margin-bottom:1.5rem;
+  position:relative;
+  overflow:hidden;
+}
+.card::before {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0; height:2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.card-title {
+  font-family:'Cinzel', serif;
+  font-size:0.9rem;
+  color:var(--gold);
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  margin-bottom:1rem;
+}
+
+/* FORMS */
+.form-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:1rem; }
+.form-group { display:flex; flex-direction:column; gap:0.4rem; }
+.form-group label { font-size:0.78rem; color:var(--text2); letter-spacing:0.08em; text-transform:uppercase; }
+.form-group input, .form-group select {
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(201,168,76,0.25);
+  border-radius:4px;
+  color:var(--text);
+  padding:0.6rem 0.8rem;
+  font-family:'Crimson Pro', serif;
+  font-size:1rem;
+  transition:border-color 0.3s;
+}
+.form-group input:focus, .form-group select:focus {
+  outline:none;
+  border-color:var(--gold);
+  box-shadow:0 0 10px rgba(201,168,76,0.15);
+}
+.form-group select option { background:var(--deep3); }
+
+/* BUTTONS */
+.btn {
+  font-family:'Cinzel', serif;
+  font-size:0.78rem;
+  letter-spacing:0.1em;
+  padding:0.7rem 1.5rem;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+  transition:all 0.3s;
+  text-transform:uppercase;
+}
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color:var(--deep);
+  font-weight:700;
+}
+.btn-gold:hover { transform:translateY(-1px); box-shadow:0 5px 20px rgba(201,168,76,0.4); }
+.btn-sm { padding:0.4rem 0.8rem; font-size:0.68rem; }
+.btn-danger { background:rgba(231,76,60,0.2); color:#e74c3c; border:1px solid rgba(231,76,60,0.3); }
+.btn-danger:hover { background:rgba(231,76,60,0.3); }
+
+/* TABLE */
+.table-wrap { overflow-x:auto; }
+table { width:100%; border-collapse:collapse; font-size:0.9rem; }
+th {
+  font-family:'Cinzel', serif;
+  font-size:0.7rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--gold);
+  padding:0.7rem 1rem;
+  text-align:left;
+  border-bottom:1px solid rgba(201,168,76,0.2);
+}
+td { padding:0.6rem 1rem; border-bottom:1px solid rgba(255,255,255,0.05); vertical-align:middle; }
+tr:hover td { background:rgba(201,168,76,0.04); }
+
+/* PRESENÇA - DOTS */
+.dot {
+  width:24px; height:24px;
+  border-radius:50%;
+  display:inline-flex; align-items:center; justify-content:center;
+  cursor:pointer;
+  transition:all 0.2s;
+  border:2px solid transparent;
+  font-size:0;
+}
+.dot.present { background:var(--green); box-shadow:0 0 8px rgba(46,204,113,0.5); }
+.dot.absent { background:var(--red); box-shadow:0 0 8px rgba(231,76,60,0.4); }
+.dot.none { background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.15); }
+.dot:hover { transform:scale(1.2); }
+
+/* FREQ BAR */
+.freq-bar-wrap { display:flex; align-items:center; gap:0.5rem; min-width:120px; }
+.freq-bar {
+  flex:1; height:6px; background:rgba(255,255,255,0.1); border-radius:3px; overflow:hidden;
+}
+.freq-fill {
+  height:100%; border-radius:3px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+  transition:width 0.5s ease;
+}
+.freq-pct { font-size:0.8rem; color:var(--gold-light); min-width:38px; text-align:right; }
+
+/* CARGO BADGES */
+.badge {
+  font-family:'Cinzel', serif;
+  font-size:0.6rem;
+  padding:0.15rem 0.5rem;
+  border-radius:20px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.badge-pastor { background:rgba(201,168,76,0.25); color:var(--gold-light); border:1px solid rgba(201,168,76,0.4); }
+.badge-evangelista { background:rgba(114,186,250,0.2); color:#72bafa; border:1px solid rgba(114,186,250,0.3); }
+.badge-diacono { background:rgba(126,211,133,0.2); color:#7ed385; border:1px solid rgba(126,211,133,0.3); }
+.badge-missionario { background:rgba(255,168,100,0.2); color:#ffa864; border:1px solid rgba(255,168,100,0.3); }
+.badge-membro { background:rgba(180,180,200,0.15); color:#b4b4c8; border:1px solid rgba(180,180,200,0.25); }
+.badge-visitante { background:rgba(200,100,220,0.15); color:#c864dc; border:1px solid rgba(200,100,220,0.25); }
+
+/* STATS GRID */
+.stats-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(180px,1fr)); gap:1rem; margin-bottom:1.5rem; }
+.stat-card {
+  background: linear-gradient(135deg, rgba(30,37,72,0.8), rgba(22,27,53,0.8));
+  border:1px solid rgba(201,168,76,0.2);
+  border-radius:8px;
+  padding:1.2rem;
+  text-align:center;
+}
+.stat-card .stat-num {
+  font-family:'Cinzel Decorative', serif;
+  font-size:2rem;
+  color:var(--gold-light);
+  text-shadow:0 0 20px rgba(201,168,76,0.3);
+}
+.stat-card .stat-label {
+  font-size:0.75rem;
+  color:var(--text2);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  margin-top:0.3rem;
+}
+
+/* PROGRESS */
+.prog-ring-wrap { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+.prog-ring { position:relative; display:inline-flex; }
+.prog-ring svg { transform:rotate(-90deg); }
+.prog-ring-label {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  font-family:'Cinzel Decorative', serif;
+  color:var(--gold-light);
+}
+.prog-ring-label .pct { font-size:1.2rem; }
+.prog-ring-label .lbl { font-size:0.5rem; color:var(--text2); letter-spacing:0.05em; }
+
+/* SEXTAS */
+.fridays-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.friday-chip {
+  font-family:'Cinzel', serif;
+  font-size:0.62rem;
+  padding:0.3rem 0.6rem;
+  border:1px solid rgba(201,168,76,0.2);
+  border-radius:3px;
+  color:var(--text2);
+  cursor:pointer;
+  transition:all 0.2s;
+  white-space:nowrap;
+}
+.friday-chip.selected {
+  background: rgba(201,168,76,0.15);
+  border-color:var(--gold);
+  color:var(--gold-light);
+}
+.friday-chip.past { opacity:0.5; }
+
+/* MATERIAL TOGGLE */
+.material-btn {
+  width:28px; height:28px; border-radius:50%;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:0.8rem; cursor:pointer; transition:all 0.2s;
+  border:2px solid rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.05);
+}
+.material-btn.yes { background:rgba(52,152,219,0.3); border-color:var(--blue); color:var(--blue); }
+.material-btn:hover { transform:scale(1.15); }
+
+/* CERTIFICATE */
+#cert-canvas-wrap {
+  display:none;
+  margin-top:1.5rem;
+}
+canvas#certCanvas {
+  width:100%;
+  max-width:800px;
+  display:block;
+  margin:0 auto;
+  border:2px solid rgba(201,168,76,0.3);
+  border-radius:4px;
+}
+
+/* EXPORT */
+.export-preview {
+  background:rgba(0,0,0,0.3);
+  border:1px solid rgba(201,168,76,0.15);
+  border-radius:6px;
+  padding:1rem;
+  font-family:'Courier New', monospace;
+  font-size:0.82rem;
+  line-height:1.7;
+  color:var(--text2);
+  white-space:pre-wrap;
+  max-height:400px;
+  overflow-y:auto;
+}
+
+/* TOAST */
+.toast {
+  position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(100px);
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color:var(--deep);
+  font-family:'Cinzel', serif;
+  font-size:0.8rem;
+  letter-spacing:0.08em;
+  padding:0.8rem 2rem;
+  border-radius:4px;
+  z-index:9999;
+  transition:transform 0.3s;
+  box-shadow:0 5px 25px rgba(201,168,76,0.4);
+}
+.toast.show { transform:translateX(-50%) translateY(0); }
+
+/* ORNAMENT */
+.ornament {
+  text-align:center;
+  color:var(--gold-dark);
+  font-size:1.2rem;
+  letter-spacing:1rem;
+  margin: 1rem 0;
+  opacity:0.5;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width:5px; height:5px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb { background:rgba(201,168,76,0.3); border-radius:3px; }
+
+/* ── INSTALL BANNER ── */
+#installBanner {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 9998;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  animation: slideUp 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+#installBanner.show { display: block; }
+.install-inner {
+  background: linear-gradient(135deg, #0f1225, #1a1440);
+  border-top: 2px solid var(--gold);
+  box-shadow: 0 -8px 40px rgba(0,0,0,0.6), 0 -2px 0 rgba(201,168,76,0.3);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.install-icon {
+  width: 52px; height: 52px;
+  background: linear-gradient(135deg, #1e2548, #2a1f5e);
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(201,168,76,0.2);
+}
+.install-text { flex: 1; min-width: 180px; }
+.install-text strong {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--gold-light);
+  margin-bottom: 0.2rem;
+}
+.install-text span { font-size: 0.78rem; color: var(--text2); }
+.install-actions { display: flex; gap: 0.5rem; align-items: center; }
+#btnInstall {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.4rem;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: var(--deep);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(201,168,76,0.3);
+}
+#btnInstall:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(201,168,76,0.5); }
+#btnDismiss {
+  background: transparent;
+  border: 1px solid rgba(201,168,76,0.25);
+  color: var(--text2);
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+#btnDismiss:hover { border-color: var(--gold); color: var(--text); }
+#iosHint {
+  display: none;
+  background: linear-gradient(135deg, #0f1225, #1a1440);
+  border-top: 2px solid var(--gold);
+  padding: 1rem 1.5rem;
+  text-align: center;
+}
+#iosHint p { font-size: 0.82rem; color: var(--text2); line-height: 1.6; }
+#iosHint strong { color: var(--gold-light); }
+#iosHint .close-hint {
+  margin-top: 0.6rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  color: var(--text2);
+  background: transparent;
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 3px;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+}
+#offlinePill {
+  display: none;
+  position: fixed;
+  top: 0.8rem; right: 1rem;
+  background: rgba(231,76,60,0.15);
+  border: 1px solid rgba(231,76,60,0.4);
+  color: #e74c3c;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  z-index: 9997;
+}
+#offlinePill.show { display: block; }
+body { padding-bottom: env(safe-area-inset-bottom, 0); }
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .form-grid { grid-template-columns:1fr; }
+  td, th { padding:0.5rem; font-size:0.8rem; }
+  .dot { width:20px; height:20px; }
+}
+
+.empty-state {
+  text-align:center; padding:3rem; color:var(--text2);
+  font-style:italic;
+}
+.search-bar {
+  width:100%;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(201,168,76,0.25);
+  border-radius:4px;
+  color:var(--text);
+  padding:0.6rem 1rem;
+  font-family:'Crimson Pro', serif;
+  font-size:1rem;
+  margin-bottom:1rem;
+}
+.search-bar:focus { outline:none; border-color:var(--gold); }
+
+.flex-row { display:flex; gap:1rem; align-items:center; flex-wrap:wrap; margin-bottom:1rem; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo-cross">✟</div>
+  <h1>Culto de Ensino da Palavra</h1>
+  <p class="subtitle">Sextas-Feiras &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Imersão Escatológica</p>
+  <div class="church-info-bar" id="churchInfoBar">
+    <div>Igreja: <span id="hdrIgreja">—</span></div>
+    <div>Congregação: <span id="hdrCong">—</span></div>
+    <div>Pastor: <span id="hdrPastor">—</span></div>
+  </div>
+</header>
+
+<nav>
+  <button class="nav-btn active" onclick="showPanel('config')">⚙ Configuração</button>
+  <button class="nav-btn" onclick="showPanel('pessoas')">👤 Pessoas</button>
+  <button class="nav-btn" onclick="showPanel('presenca')">📋 Presença</button>
+  <button class="nav-btn" onclick="showPanel('progresso')">📊 Progresso</button>
+  <button class="nav-btn" onclick="showPanel('exportar')">📤 Exportar</button>
+  <button class="nav-btn" onclick="showPanel('certificado')">🏆 Certificado</button>
+</nav>
+
+<!-- =================== CONFIG =================== -->
+<div class="panel active" id="panel-config">
+  <div class="card">
+    <div class="card-title">✦ Dados da Igreja</div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Nome da Igreja</label>
+        <input type="text" id="cfgIgreja" placeholder="Ex: Igreja Assembléia de Deus">
+      </div>
+      <div class="form-group">
+        <label>Congregação</label>
+        <input type="text" id="cfgCong" placeholder="Ex: Bairro das Flores">
+      </div>
+      <div class="form-group">
+        <label>Nome do Pastor</label>
+        <input type="text" id="cfgPastor" placeholder="Ex: Pr. João da Silva">
+      </div>
+    </div>
+    <br>
+    <button class="btn btn-gold" onclick="saveConfig()">Salvar Configuração</button>
+  </div>
+
+  <div class="card">
+    <div class="card-title">✦ Sextas-Feiras de 2026</div>
+    <p style="font-size:0.85rem; color:var(--text2); margin-bottom:1rem;">Total de <strong style="color:var(--gold-light)" id="totalFridays">0</strong> sextas · Clique para selecionar quais terão culto</p>
+    <div class="fridays-grid" id="fridaysGrid"></div>
+    <br>
+    <button class="btn btn-gold btn-sm" onclick="selectAllFridays()">Selecionar Todas</button>
+    &nbsp;
+    <button class="btn btn-sm" style="border:1px solid rgba(201,168,76,0.3);color:var(--text2);background:transparent;font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.1em;padding:0.4rem 0.8rem;cursor:pointer;text-transform:uppercase;" onclick="deselectAllFridays()">Limpar</button>
+  </div>
+</div>
+
+<!-- =================== PESSOAS =================== -->
+<div class="panel" id="panel-pessoas">
+  <div class="card">
+    <div class="card-title">✦ Cadastrar Pessoa</div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Nome Completo</label>
+        <input type="text" id="pNome" placeholder="Nome da pessoa">
+      </div>
+      <div class="form-group">
+        <label>Idade</label>
+        <input type="number" id="pIdade" placeholder="Ex: 35" min="1" max="120">
+      </div>
+      <div class="form-group">
+        <label>Cargo na Igreja</label>
+        <select id="pCargo">
+          <option value="pastor">Pastor</option>
+          <option value="evangelista">Evangelista</option>
+          <option value="diacono">Diácono</option>
+          <option value="missionario">Missionário</option>
+          <option value="membro" selected>Membro</option>
+          <option value="visitante">Visitante</option>
+        </select>
+      </div>
+    </div>
+    <br>
+    <button class="btn btn-gold" onclick="addPessoa()">+ Adicionar Pessoa</button>
+  </div>
+
+  <div class="card">
+    <div class="card-title">✦ Lista de Pessoas <span id="totalPessoas" style="color:var(--text2);font-size:0.8rem;font-family:'Crimson Pro';"></span></div>
+    <input type="text" class="search-bar" id="searchPessoa" placeholder="🔍 Buscar pessoa..." oninput="renderPessoas()">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Cargo</th>
+            <th>Frequência</th>
+            <th>Material</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody id="pessoasBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- =================== PRESENÇA =================== -->
+<div class="panel" id="panel-presenca">
+  <div class="card">
+    <div class="card-title">✦ Marcar Presença</div>
+    <div class="flex-row">
+      <div class="form-group" style="min-width:180px;">
+        <label>Selecionar Data</label>
+        <select id="presencaDate" onchange="renderPresenca()"></select>
+      </div>
+      <div style="font-size:0.82rem; color:var(--text2); margin-top:1.2rem;">
+        ● <span style="color:var(--green)">Verde</span> = Presente &nbsp;
+        ● <span style="color:var(--red)">Vermelho</span> = Ausente &nbsp;
+        ● Cinza = Indefinido
+      </div>
+    </div>
+    <div class="flex-row">
+      <button class="btn btn-gold btn-sm" onclick="markAll('present')">✔ Todos Presentes</button>
+      <button class="btn btn-sm" style="border:1px solid rgba(231,76,60,0.4);color:#e74c3c;background:rgba(231,76,60,0.1);font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.1em;padding:0.4rem 0.8rem;cursor:pointer;text-transform:uppercase;" onclick="markAll('absent')">✗ Todos Ausentes</button>
+    </div>
+  </div>
+
+  <div class="card" id="presencaCard">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Cargo</th>
+            <th>Presença</th>
+            <th>Freq. Geral</th>
+          </tr>
+        </thead>
+        <tbody id="presencaBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- =================== PROGRESSO =================== -->
+<div class="panel" id="panel-progresso">
+  <div class="stats-grid" id="statsGrid"></div>
+
+  <div class="card">
+    <div class="card-title">✦ Frequência Geral do Evento</div>
+    <div class="prog-ring-wrap" id="progrRings"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">✦ Ranking de Frequência</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Cargo</th>
+            <th>Presenças</th>
+            <th>Frequência</th>
+            <th>Material</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="rankingBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">✦ Frequência por Data</div>
+    <div id="perDateStats"></div>
+  </div>
+</div>
+
+<!-- =================== EXPORTAR =================== -->
+<div class="panel" id="panel-exportar">
+  <div class="card">
+    <div class="card-title">✦ Exportar via WhatsApp</div>
+    <div class="flex-row">
+      <div class="form-group">
+        <label>Tipo de Relatório</label>
+        <select id="exportType" onchange="generateExport()">
+          <option value="geral">Relatório Geral</option>
+          <option value="frequencia">Frequência Detalhada</option>
+          <option value="material">Compra de Material</option>
+          <option value="certificados">Aptos ao Certificado</option>
+        </select>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <button class="btn btn-gold" onclick="sendWhatsApp()">📲 Enviar WhatsApp</button>
+      </div>
+    </div>
+    <br>
+    <div class="export-preview" id="exportPreview">Selecione o tipo de relatório acima...</div>
+  </div>
+</div>
+
+<!-- =================== CERTIFICADO =================== -->
+<div class="panel" id="panel-certificado">
+  <div class="card">
+    <div class="card-title">✦ Gerar Certificado</div>
+    <p style="font-size:0.9rem; color:var(--text2); margin-bottom:1rem;">Apenas participantes com <strong style="color:var(--gold-light)">70% ou mais</strong> de frequência são elegíveis.</p>
+
+    <div class="form-group" style="max-width:300px; margin-bottom:1rem;">
+      <label>Selecionar Pessoa</label>
+      <select id="certPessoa" onchange="previewCert()">
+        <option value="">— Selecione —</option>
+      </select>
+    </div>
+    <button class="btn btn-gold" onclick="downloadCert()">⬇ Baixar Certificado (PNG)</button>
+
+    <div id="cert-canvas-wrap">
+      <br>
+      <canvas id="certCanvas" width="1200" height="850"></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">✦ Elegíveis ao Certificado</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Nome</th><th>Cargo</th><th>Frequência</th><th>Status</th></tr>
+        </thead>
+        <tbody id="eligibleBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- ── OFFLINE INDICATOR ── -->
+<div id="offlinePill">📵 Offline</div>
+
+<!-- ── INSTALL BANNER (Android / Desktop) ── -->
+<div id="installBanner">
+  <div class="install-inner">
+    <div class="install-icon">✟</div>
+    <div class="install-text">
+      <strong>Instalar Culto de Ensino da Palavra</strong>
+      <span>Acesse offline, direto da tela inicial — sem depender da internet</span>
+    </div>
+    <div class="install-actions">
+      <button id="btnInstall" onclick="triggerInstall()">⬇ Instalar</button>
+      <button id="btnDismiss" onclick="dismissBanner()">Agora não</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── IOS INSTALL HINT ── -->
+<div id="iosHint">
+  <p>Para instalar no iPhone/iPad:<br>
+    Toque em <strong>Compartilhar ⬆</strong> → <strong>"Adicionar à Tela Inicial"</strong>
+  </p>
+  <button class="close-hint" onclick="document.getElementById('iosHint').style.display=\'none\'">Entendi</button>
+</div>
+
+
+<script>
+// ============================================================
+// STATE
+// ============================================================
+let state = {
+  config: { igreja:'', congregacao:'', pastor:'' },
+  fridays: [],
+  activeFridays: [],
+  pessoas: [],
+  presencas: {}, // { 'YYYY-MM-DD': { pessoaId: 'present'|'absent' } }
+  materiais: {}  // { pessoaId: true/false }
+};
+
+const CARGOS = {
+  pastor:'Pastor', evangelista:'Evangelista', diacono:'Diácono',
+  missionario:'Missionário', membro:'Membro', visitante:'Visitante'
+};
+
+function load() {
+  const s = localStorage.getItem('cep2026');
+  if(s) state = JSON.parse(s);
+}
+function save() { localStorage.setItem('cep2026', JSON.stringify(state)); }
+
+// ============================================================
+// FRIDAYS 2026
+// ============================================================
+function getFridaysOf2026() {
+  const f = [];
+  let d = new Date(2026,0,2); // first friday
+  while(d.getFullYear()===2026){ f.push(d.toISOString().split('T')[0]); d.setDate(d.getDate()+7); }
+  return f;
+}
+
+function initFridays() {
+  state.fridays = getFridaysOf2026();
+  document.getElementById('totalFridays').textContent = state.fridays.length;
+  renderFridayChips();
+}
+
+function renderFridayChips() {
+  const g = document.getElementById('fridaysGrid');
+  const months = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  g.innerHTML = state.fridays.map(d=>{
+    const dt = new Date(d+'T12:00:00');
+    const sel = state.activeFridays.includes(d);
+    const lbl = `${dt.getDate()} ${months[dt.getMonth()]}`;
+    return `<div class="friday-chip ${sel?'selected':''}" onclick="toggleFriday('${d}',this)">${lbl}</div>`;
+  }).join('');
+}
+
+function toggleFriday(date, el) {
+  const i = state.activeFridays.indexOf(date);
+  if(i>=0){ state.activeFridays.splice(i,1); el.classList.remove('selected'); }
+  else { state.activeFridays.push(date); state.activeFridays.sort(); el.classList.add('selected'); }
+  save();
+  populateDateSelect();
+}
+
+function selectAllFridays() {
+  state.activeFridays = [...state.fridays];
+  save(); renderFridayChips(); populateDateSelect();
+}
+function deselectAllFridays() {
+  state.activeFridays = [];
+  save(); renderFridayChips(); populateDateSelect();
+}
+
+// ============================================================
+// CONFIG
+// ============================================================
+function saveConfig() {
+  state.config.igreja = document.getElementById('cfgIgreja').value.trim();
+  state.config.congregacao = document.getElementById('cfgCong').value.trim();
+  state.config.pastor = document.getElementById('cfgPastor').value.trim();
+  save(); updateHeader(); toast('Configuração salva!');
+}
+
+function loadConfigUI() {
+  document.getElementById('cfgIgreja').value = state.config.igreja||'';
+  document.getElementById('cfgCong').value = state.config.congregacao||'';
+  document.getElementById('cfgPastor').value = state.config.pastor||'';
+  updateHeader();
+}
+
+function updateHeader() {
+  document.getElementById('hdrIgreja').textContent = state.config.igreja||'—';
+  document.getElementById('hdrCong').textContent = state.config.congregacao||'—';
+  document.getElementById('hdrPastor').textContent = state.config.pastor||'—';
+}
+
+// ============================================================
+// PESSOAS
+// ============================================================
+let pidCounter = 0;
+
+function addPessoa() {
+  const nome = document.getElementById('pNome').value.trim();
+  const idade = parseInt(document.getElementById('pIdade').value)||0;
+  const cargo = document.getElementById('pCargo').value;
+  if(!nome){ toast('Informe o nome!'); return; }
+  pidCounter++;
+  const id = 'p'+Date.now()+'_'+pidCounter;
+  state.pessoas.push({id, nome, idade, cargo});
+  save();
+  document.getElementById('pNome').value='';
+  document.getElementById('pIdade').value='';
+  renderPessoas(); populateCertSelect();
+  toast('Pessoa cadastrada!');
+}
+
+function removePessoa(id) {
+  if(!confirm('Remover esta pessoa?')) return;
+  state.pessoas = state.pessoas.filter(p=>p.id!==id);
+  // remove presences
+  for(const d in state.presencas){ delete state.presencas[d][id]; }
+  delete state.materiais[id];
+  save(); renderPessoas(); populateCertSelect();
+}
+
+function toggleMaterial(id) {
+  state.materiais[id] = !state.materiais[id];
+  save(); renderPessoas();
+}
+
+function getFreq(pid) {
+  const total = state.activeFridays.length;
+  if(!total) return {pct:0, count:0, total:0};
+  let count=0;
+  for(const d of state.activeFridays){
+    if(state.presencas[d] && state.presencas[d][pid]==='present') count++;
+  }
+  return {pct: total? Math.round(count/total*100):0, count, total};
+}
+
+function badgeHTML(cargo) {
+  return `<span class="badge badge-${cargo}">${CARGOS[cargo]||cargo}</span>`;
+}
+
+function freqBarHTML(pct) {
+  const color = pct>=70?'#2ecc71': pct>=50?'#f39c12':'#e74c3c';
+  return `<div class="freq-bar-wrap">
+    <div class="freq-bar"><div class="freq-fill" style="width:${pct}%;background:linear-gradient(90deg,${color}88,${color})"></div></div>
+    <div class="freq-pct" style="color:${color}">${pct}%</div>
+  </div>`;
+}
+
+function renderPessoas() {
+  const search = (document.getElementById('searchPessoa').value||'').toLowerCase();
+  const list = state.pessoas.filter(p=>p.nome.toLowerCase().includes(search));
+  document.getElementById('totalPessoas').textContent = `(${state.pessoas.length} total)`;
+  const tbody = document.getElementById('pessoasBody');
+  if(!list.length){ tbody.innerHTML='<tr><td colspan="7" class="empty-state">Nenhuma pessoa cadastrada.</td></tr>'; return; }
+  tbody.innerHTML = list.map((p,i)=>{
+    const f = getFreq(p.id);
+    const mat = state.materiais[p.id]||false;
+    return `<tr>
+      <td style="color:var(--text2)">${i+1}</td>
+      <td><strong>${p.nome}</strong></td>
+      <td>${p.idade||'—'}</td>
+      <td>${badgeHTML(p.cargo)}</td>
+      <td>${freqBarHTML(f.pct)}</td>
+      <td>
+        <div class="material-btn ${mat?'yes':''}" onclick="toggleMaterial('${p.id}')" title="${mat?'Comprou material':'Não comprou'}">
+          ${mat?'📗':'📔'}
+        </div>
+      </td>
+      <td><button class="btn btn-danger btn-sm" onclick="removePessoa('${p.id}')">✕</button></td>
+    </tr>`;
+  }).join('');
+}
+
+// ============================================================
+// PRESENÇA
+// ============================================================
+function populateDateSelect() {
+  const sel = document.getElementById('presencaDate');
+  const cur = sel.value;
+  const months = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  sel.innerHTML = state.activeFridays.length
+    ? state.activeFridays.map(d=>{
+        const dt = new Date(d+'T12:00:00');
+        return `<option value="${d}">${dt.getDate()}/${dt.getMonth()+1} (${months[dt.getMonth()]})</option>`;
+      }).join('')
+    : '<option value="">— Nenhuma data ativa —</option>';
+  if(cur && state.activeFridays.includes(cur)) sel.value=cur;
+  renderPresenca();
+}
+
+function renderPresenca() {
+  const date = document.getElementById('presencaDate').value;
+  const tbody = document.getElementById('presencaBody');
+  if(!date || !state.pessoas.length){
+    tbody.innerHTML='<tr><td colspan="4" class="empty-state">Selecione uma data e cadastre pessoas.</td></tr>';
+    return;
+  }
+  if(!state.presencas[date]) state.presencas[date]={};
+  tbody.innerHTML = state.pessoas.map(p=>{
+    const status = state.presencas[date][p.id]||'none';
+    const f = getFreq(p.id);
+    return `<tr>
+      <td><strong>${p.nome}</strong></td>
+      <td>${badgeHTML(p.cargo)}</td>
+      <td>
+        <div style="display:flex;gap:0.4rem;align-items:center;">
+          <div class="dot ${status==='present'?'present':''}" onclick="setPresenca('${date}','${p.id}','present')" title="Presente" style="background:${status==='present'?'var(--green)':'rgba(46,204,113,0.15)'};border:2px solid ${status==='present'?'var(--green)':'rgba(46,204,113,0.3)'}">✓</div>
+          <div class="dot ${status==='absent'?'absent':''}" onclick="setPresenca('${date}','${p.id}','absent')" title="Ausente" style="background:${status==='absent'?'var(--red)':'rgba(231,76,60,0.15)'};border:2px solid ${status==='absent'?'var(--red)':'rgba(231,76,60,0.3)'}">✗</div>
+          <span style="font-size:0.75rem;color:${status==='present'?'var(--green)':status==='absent'?'var(--red)':'var(--text2)'}">
+            ${status==='present'?'Presente':status==='absent'?'Ausente':'—'}
+          </span>
+        </div>
+      </td>
+      <td>${freqBarHTML(f.pct)}</td>
+    </tr>`;
+  }).join('');
+}
+
+function setPresenca(date, pid, status) {
+  if(!state.presencas[date]) state.presencas[date]={};
+  state.presencas[date][pid] = status;
+  save(); renderPresenca(); renderPessoas();
+}
+
+function markAll(status) {
+  const date = document.getElementById('presencaDate').value;
+  if(!date) return;
+  if(!state.presencas[date]) state.presencas[date]={};
+  state.pessoas.forEach(p=>{ state.presencas[date][p.id]=status; });
+  save(); renderPresenca();
+}
+
+// ============================================================
+// PROGRESSO
+// ============================================================
+function renderProgresso() {
+  const total = state.pessoas.length;
+  const activeDates = state.activeFridays.length;
+
+  // Stats
+  let totalPresencas=0, totalPossivel=0, matCount=0;
+  let pctSum=0;
+  state.pessoas.forEach(p=>{
+    const f=getFreq(p.id);
+    pctSum+=f.pct;
+    totalPresencas+=f.count;
+    if(state.materiais[p.id]) matCount++;
+  });
+  totalPossivel = total*activeDates;
+  const mediaFreq = total? Math.round(pctSum/total):0;
+  const aptos = state.pessoas.filter(p=>getFreq(p.id).pct>=70).length;
+
+  document.getElementById('statsGrid').innerHTML = `
+    <div class="stat-card"><div class="stat-num">${total}</div><div class="stat-label">Participantes</div></div>
+    <div class="stat-card"><div class="stat-num">${activeDates}</div><div class="stat-label">Cultos Ativos</div></div>
+    <div class="stat-card"><div class="stat-num">${mediaFreq}%</div><div class="stat-label">Freq. Média</div></div>
+    <div class="stat-card"><div class="stat-num">${totalPresencas}</div><div class="stat-label">Presenças Total</div></div>
+    <div class="stat-card"><div class="stat-num">${matCount}</div><div class="stat-label">Compraram Material</div></div>
+    <div class="stat-card"><div class="stat-num">${aptos}</div><div class="stat-label">Aptos Certificado</div></div>
+  `;
+
+  // Rings
+  const matPct = total? Math.round(matCount/total*100):0;
+  document.getElementById('progrRings').innerHTML = `
+    ${ringHTML(mediaFreq,'Frequência')}
+    ${ringHTML(total?Math.round(totalPresencas/Math.max(totalPossivel,1)*100):0,'Participação')}
+    ${ringHTML(matPct,'Material')}
+    ${ringHTML(total?Math.round(aptos/total*100):0,'Aptos')}
+  `;
+
+  // Ranking
+  const sorted = [...state.pessoas].sort((a,b)=>getFreq(b.id).pct-getFreq(a.id).pct);
+  const rankBody = document.getElementById('rankingBody');
+  rankBody.innerHTML = sorted.map((p,i)=>{
+    const f=getFreq(p.id);
+    const mat=state.materiais[p.id];
+    const ok=f.pct>=70;
+    return `<tr>
+      <td style="color:${i===0?'var(--gold-light)':i===1?'#c0c0c0':i===2?'#cd7f32':'var(--text2)'}">${i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1}</td>
+      <td><strong>${p.nome}</strong></td>
+      <td>${badgeHTML(p.cargo)}</td>
+      <td>${f.count}/${f.total}</td>
+      <td>${freqBarHTML(f.pct)}</td>
+      <td><span style="color:${mat?'var(--blue)':'var(--text2)'}">${mat?'✔ Sim':'✗ Não'}</span></td>
+      <td><span style="color:${ok?'var(--green)':'#e74c3c'};font-size:0.8rem;">${ok?'✔ Apto':'✗ Pendente'}</span></td>
+    </tr>`;
+  }).join('');
+
+  // Per date
+  const months=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  const perDateHTML = state.activeFridays.map(d=>{
+    const dt=new Date(d+'T12:00:00');
+    const rec=state.presencas[d]||{};
+    const pres=Object.values(rec).filter(v=>v==='present').length;
+    const aus=Object.values(rec).filter(v=>v==='absent').length;
+    const pct=total?Math.round(pres/total*100):0;
+    return `<div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.5rem;">
+      <span style="font-family:'Cinzel',serif;font-size:0.72rem;color:var(--text2);min-width:80px">${dt.getDate()}/${dt.getMonth()+1} ${months[dt.getMonth()]}</span>
+      <div class="freq-bar" style="flex:1;height:8px;"><div class="freq-fill" style="width:${pct}%"></div></div>
+      <span style="font-size:0.8rem;color:var(--gold-light);min-width:40px">${pct}%</span>
+      <span style="font-size:0.75rem;color:var(--text2)">${pres}✓ ${aus}✗</span>
+    </div>`;
+  }).join('');
+  document.getElementById('perDateStats').innerHTML = perDateHTML||'<p class="empty-state">Nenhuma data configurada.</p>';
+
+  // Eligible
+  const eligibleBody = document.getElementById('eligibleBody');
+  const eligible = state.pessoas.filter(p=>getFreq(p.id).pct>=70);
+  eligibleBody.innerHTML = eligible.length
+    ? eligible.map(p=>{const f=getFreq(p.id);return `<tr>
+        <td><strong>${p.nome}</strong></td>
+        <td>${badgeHTML(p.cargo)}</td>
+        <td>${freqBarHTML(f.pct)}</td>
+        <td><span style="color:var(--green)">✔ Elegível</span></td>
+      </tr>`;}).join('')
+    : '<tr><td colspan="4" class="empty-state">Nenhum elegível ainda.</td></tr>';
+}
+
+function ringHTML(pct, label) {
+  const r=50, c=2*Math.PI*r;
+  const fill=c-(pct/100)*c;
+  const color = pct>=70?'#2ecc71': pct>=50?'#f39c12':'#c9a84c';
+  return `<div style="text-align:center;">
+    <div class="prog-ring">
+      <svg width="120" height="120" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="${r}" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="10"/>
+        <circle cx="60" cy="60" r="${r}" fill="none" stroke="${color}" stroke-width="10"
+          stroke-dasharray="${c}" stroke-dashoffset="${fill}" stroke-linecap="round"
+          style="filter:drop-shadow(0 0 6px ${color}88);transition:stroke-dashoffset 1s ease"/>
+      </svg>
+      <div class="prog-ring-label">
+        <span class="pct" style="color:${color}">${pct}%</span>
+        <span class="lbl">${label}</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+// ============================================================
+// EXPORT
+// ============================================================
+function generateExport() {
+  const type = document.getElementById('exportType').value;
+  const cfg = state.config;
+  const months=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  let txt='';
+  const header=`✟ *CULTO DE ENSINO DA PALAVRA* ✟\n📍 ${cfg.igreja||'Igreja'}${cfg.congregacao?' - '+cfg.congregacao:''}\n👨‍💼 ${cfg.pastor?'Pr. '+cfg.pastor:'—'}\n${'─'.repeat(35)}\n`;
+
+  if(type==='geral'){
+    const total=state.pessoas.length, active=state.activeFridays.length;
+    let pres=0; state.pessoas.forEach(p=>{pres+=getFreq(p.id).count;});
+    const mat=Object.values(state.materiais).filter(Boolean).length;
+    const aptos=state.pessoas.filter(p=>getFreq(p.id).pct>=70).length;
+    txt=header+`📊 *RELATÓRIO GERAL*\n\n👥 Participantes: ${total}\n📅 Cultos realizados: ${active}\n✅ Total de presenças: ${pres}\n📚 Compraram material: ${mat}\n🏆 Aptos ao certificado: ${aptos}\n\n🗓 Datas ativas:\n${state.activeFridays.slice(0,5).map(d=>{const dt=new Date(d+'T12:00:00');return`  • ${dt.getDate()}/${dt.getMonth()+1}/${dt.getFullYear()}`;}).join('\n')}${state.activeFridays.length>5?`\n  ... e mais ${state.activeFridays.length-5} datas`:''}`;
+  } else if(type==='frequencia'){
+    const sorted=[...state.pessoas].sort((a,b)=>getFreq(b.id).pct-getFreq(a.id).pct);
+    txt=header+`📋 *FREQUÊNCIA DETALHADA*\n\n`;
+    sorted.forEach((p,i)=>{const f=getFreq(p.id);const bar='█'.repeat(Math.round(f.pct/10))+'░'.repeat(10-Math.round(f.pct/10));txt+=`${i+1}. *${p.nome}* (${CARGOS[p.cargo]})\n   ${bar} ${f.pct}% — ${f.count}/${f.total} cultos\n\n`;});
+  } else if(type==='material'){
+    txt=header+`📗 *COMPRA DE MATERIAL DIDÁTICO*\n\n`;
+    const sim=state.pessoas.filter(p=>state.materiais[p.id]);
+    const nao=state.pessoas.filter(p=>!state.materiais[p.id]);
+    txt+=`✅ Compraram (${sim.length}):\n${sim.map(p=>`  • ${p.nome}`).join('\n')||'  — nenhum'}\n\n❌ Não compraram (${nao.length}):\n${nao.map(p=>`  • ${p.nome}`).join('\n')||'  — nenhum'}`;
+  } else if(type==='certificados'){
+    const elig=state.pessoas.filter(p=>getFreq(p.id).pct>=70);
+    const nelig=state.pessoas.filter(p=>getFreq(p.id).pct<70);
+    txt=header+`🏆 *APTOS AO CERTIFICADO*\n(mínimo 70% de frequência)\n\n✅ Elegíveis (${elig.length}):\n${elig.map(p=>{const f=getFreq(p.id);return`  • ${p.nome} — ${f.pct}%`;}).join('\n')||'  — nenhum'}\n\n❌ Ainda não elegíveis (${nelig.length}):\n${nelig.map(p=>{const f=getFreq(p.id);return`  • ${p.nome} — ${f.pct}%`;}).join('\n')||'  — nenhum'}`;
+  }
+
+  document.getElementById('exportPreview').textContent=txt;
+}
+
+function sendWhatsApp() {
+  const txt=document.getElementById('exportPreview').textContent;
+  if(!txt||txt.startsWith('Selecione')){ toast('Gere o relatório primeiro!'); return; }
+  window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+}
+
+// ============================================================
+// CERTIFICATE
+// ============================================================
+function populateCertSelect() {
+  const sel=document.getElementById('certPessoa');
+  const elig=state.pessoas.filter(p=>getFreq(p.id).pct>=70);
+  sel.innerHTML='<option value="">— Selecione —</option>'+elig.map(p=>`<option value="${p.id}">${p.nome} (${getFreq(p.id).pct}%)</option>`).join('');
+}
+
+function previewCert() {
+  const pid=document.getElementById('certPessoa').value;
+  if(!pid){document.getElementById('cert-canvas-wrap').style.display='none';return;}
+  const p=state.pessoas.find(x=>x.id===pid);
+  if(!p) return;
+  drawCert(p);
+  document.getElementById('cert-canvas-wrap').style.display='block';
+}
+
+function drawCert(p) {
+  const canvas=document.getElementById('certCanvas');
+  const ctx=canvas.getContext('2d');
+  const W=1200, H=850;
+
+  // ── Light ivory background ──
+  const bg=ctx.createLinearGradient(0,0,W,H);
+  bg.addColorStop(0,'#fdfaf3');
+  bg.addColorStop(0.4,'#fef8eb');
+  bg.addColorStop(0.7,'#fdf5e8');
+  bg.addColorStop(1,'#faf6ee');
+  ctx.fillStyle=bg;
+  ctx.fillRect(0,0,W,H);
+
+  // Soft radial warmth center
+  const glow=ctx.createRadialGradient(W/2,H/2,0,W/2,H/2,500);
+  glow.addColorStop(0,'rgba(255,245,210,0.6)');
+  glow.addColorStop(0.6,'rgba(255,235,180,0.15)');
+  glow.addColorStop(1,'transparent');
+  ctx.fillStyle=glow;
+  ctx.fillRect(0,0,W,H);
+
+  // Subtle watermark cross background
+  ctx.save();
+  ctx.globalAlpha=0.04;
+  ctx.font='bold 500px Georgia, serif';
+  ctx.textAlign='center';
+  ctx.fillStyle='#8a6a1f';
+  ctx.fillText('✟',W/2,H/2+180);
+  ctx.restore();
+
+  // ── Decorative borders ──
+  // Outer thick gold border
+  ctx.strokeStyle='#b8922a';
+  ctx.lineWidth=4;
+  ctx.strokeRect(28,28,W-56,H-56);
+  // Thin inner border
+  ctx.strokeStyle='rgba(184,146,42,0.5)';
+  ctx.lineWidth=1;
+  ctx.strokeRect(40,40,W-80,H-80);
+  // Double line
+  ctx.strokeStyle='rgba(184,146,42,0.25)';
+  ctx.lineWidth=1;
+  ctx.strokeRect(48,48,W-96,H-96);
+
+  // ── Corner flourishes ──
+  function drawCorner(x,y,sx,sy){
+    ctx.save();
+    ctx.translate(x,y); ctx.scale(sx,sy);
+    ctx.strokeStyle='rgba(160,120,30,0.7)'; ctx.lineWidth=1.5;
+    // L-shape
+    ctx.beginPath(); ctx.moveTo(0,50); ctx.lineTo(0,0); ctx.lineTo(50,0); ctx.stroke();
+    // Arc
+    ctx.beginPath(); ctx.arc(0,0,20,0,Math.PI/2); ctx.stroke();
+    // Small diamond
+    ctx.beginPath(); ctx.moveTo(60,0); ctx.lineTo(66,6); ctx.lineTo(72,0); ctx.lineTo(66,-6); ctx.closePath();
+    ctx.fillStyle='rgba(160,120,30,0.5)'; ctx.fill();
+    ctx.restore();
+  }
+  drawCorner(55,55,1,1); drawCorner(W-55,55,-1,1);
+  drawCorner(55,H-55,1,-1); drawCorner(W-55,H-55,-1,-1);
+
+  // ── Top banner strip ──
+  const bannerGrad=ctx.createLinearGradient(0,58,0,115);
+  bannerGrad.addColorStop(0,'rgba(184,146,42,0.12)');
+  bannerGrad.addColorStop(1,'rgba(184,146,42,0)');
+  ctx.fillStyle=bannerGrad;
+  ctx.fillRect(55,58,W-110,57);
+
+  // ── Cross icon ──
+  ctx.save();
+  ctx.textAlign='center';
+  // Shadow cross
+  ctx.shadowColor='rgba(160,120,20,0.2)';
+  ctx.shadowBlur=12;
+  ctx.font='bold 52px Georgia, serif';
+  ctx.fillStyle='#b8922a';
+  ctx.fillText('✟',W/2,138);
+  ctx.shadowBlur=0;
+  ctx.restore();
+
+  // ── Divider line top ──
+  const lineGrad=ctx.createLinearGradient(150,0,W-150,0);
+  lineGrad.addColorStop(0,'transparent');
+  lineGrad.addColorStop(0.3,'#c9a84c');
+  lineGrad.addColorStop(0.7,'#c9a84c');
+  lineGrad.addColorStop(1,'transparent');
+  ctx.strokeStyle=lineGrad; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(150,158); ctx.lineTo(W-150,158); ctx.stroke();
+
+  // ── "CERTIFICADO DE PARTICIPAÇÃO" ──
+  ctx.textAlign='center';
+  ctx.font='bold 15px Georgia, serif';
+  ctx.fillStyle='#9a7820';
+  ctx.letterSpacing='6px';
+  ctx.fillText('CERTIFICADO  DE  PARTICIPAÇÃO', W/2, 200);
+
+  // ── "Imersão Escatológica" ──
+  ctx.font='italic bold 54px Georgia, serif';
+  const titleGrad=ctx.createLinearGradient(0,215,W,285);
+  titleGrad.addColorStop(0,'#8a6010');
+  titleGrad.addColorStop(0.35,'#c9941c');
+  titleGrad.addColorStop(0.65,'#b8820a');
+  titleGrad.addColorStop(1,'#7a5008');
+  ctx.fillStyle=titleGrad;
+  // Shadow
+  ctx.shadowColor='rgba(180,140,30,0.25)';
+  ctx.shadowBlur=8; ctx.shadowOffsetY=2;
+  ctx.fillText('Imersão Escatológica', W/2, 278);
+  ctx.shadowBlur=0; ctx.shadowOffsetY=0;
+
+  // Divider after title
+  ctx.strokeStyle=lineGrad; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(200,300); ctx.lineTo(W-200,300); ctx.stroke();
+  // Ornament center
+  ctx.font='14px serif'; ctx.fillStyle='rgba(160,120,30,0.5)';
+  ctx.fillText('✦  ✦  ✦', W/2, 320);
+
+  // ── "Certificamos que" ──
+  ctx.font='italic 20px Georgia, serif';
+  ctx.fillStyle='#6b5030';
+  ctx.fillText('Certificamos com honra que', W/2, 370);
+
+  // ── Name ──
+  ctx.font='bold 54px Georgia, serif';
+  const nameGrad=ctx.createLinearGradient(0,0,W,0);
+  nameGrad.addColorStop(0,'#7a5808');
+  nameGrad.addColorStop(0.5,'#c9941c');
+  nameGrad.addColorStop(1,'#7a5808');
+  ctx.fillStyle=nameGrad;
+  ctx.shadowColor='rgba(180,140,30,0.2)'; ctx.shadowBlur=6; ctx.shadowOffsetY=2;
+  ctx.fillText(p.nome, W/2, 445);
+  ctx.shadowBlur=0; ctx.shadowOffsetY=0;
+
+  // Name underline
+  const nameW=ctx.measureText(p.nome).width;
+  const underGrad=ctx.createLinearGradient(W/2-nameW/2,0,W/2+nameW/2,0);
+  underGrad.addColorStop(0,'transparent'); underGrad.addColorStop(0.5,'#c9a84c'); underGrad.addColorStop(1,'transparent');
+  ctx.strokeStyle=underGrad; ctx.lineWidth=1.5;
+  ctx.beginPath(); ctx.moveTo(W/2-nameW/2,455); ctx.lineTo(W/2+nameW/2,455); ctx.stroke();
+
+  // ── Cargo ──
+  ctx.font='italic 22px Georgia, serif';
+  ctx.fillStyle='#8a6830';
+  ctx.fillText(CARGOS[p.cargo]||p.cargo, W/2, 490);
+
+  // Freq
+  const f=getFreq(p.id);
+  ctx.font='18px Georgia, serif';
+  ctx.fillStyle='#5a4020';
+  ctx.fillText(`participou com ${f.pct}% de frequência (${f.count} de ${f.total} cultos)`, W/2, 540);
+
+  // Main body
+  ctx.font='italic 17px Georgia, serif';
+  ctx.fillStyle='#7a6040';
+  ctx.fillText('no Culto de Ensino da Palavra — Sextas-Feiras 2026', W/2, 572);
+
+  const cfg=state.config;
+  if(cfg.igreja||cfg.congregacao){
+    ctx.font='italic 16px Georgia, serif';
+    ctx.fillStyle='#8a7050';
+    ctx.fillText((cfg.igreja||'')+(cfg.congregacao?' · Congregação '+cfg.congregacao:''), W/2, 600);
+  }
+
+  // Bottom divider
+  ctx.strokeStyle=lineGrad; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(200,635); ctx.lineTo(W-200,635); ctx.stroke();
+
+  // Ornament
+  ctx.font='13px serif'; ctx.fillStyle='rgba(160,120,30,0.4)';
+  ctx.fillText('✦  ✟  ✦', W/2, 655);
+
+  // Signature line
+  ctx.strokeStyle='rgba(160,120,30,0.5)';
+  ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(W/2-160,715); ctx.lineTo(W/2+160,715); ctx.stroke();
+  ctx.font='bold 15px Georgia, serif';
+  ctx.fillStyle='#7a5a18';
+  ctx.fillText(cfg.pastor?'Pr. '+cfg.pastor:'Pastor Responsável', W/2, 736);
+  ctx.font='italic 13px Georgia, serif';
+  ctx.fillStyle='#a08040';
+  ctx.fillText('Pastor Responsável — Culto de Ensino da Palavra', W/2, 756);
+
+  // Year
+  ctx.font='13px Georgia, serif';
+  ctx.fillStyle='rgba(120,90,30,0.45)';
+  ctx.fillText('2026', W/2, 790);
+
+  // Bottom corner small ornament
+  ctx.font='16px serif'; ctx.fillStyle='rgba(160,120,30,0.35)';
+  ctx.fillText('· · ·', W/2, 815);
+}
+
+function downloadCert() {
+  const pid=document.getElementById('certPessoa').value;
+  if(!pid){toast('Selecione uma pessoa elegível!'); return;}
+  const p=state.pessoas.find(x=>x.id===pid);
+  previewCert();
+  setTimeout(()=>{
+    const canvas=document.getElementById('certCanvas');
+    const a=document.createElement('a');
+    a.download=`certificado_${p.nome.replace(/\s+/g,'_')}.png`;
+    a.href=canvas.toDataURL('image/png');
+    a.click();
+    toast('Certificado baixado!');
+  },100);
+}
+
+// ============================================================
+// NAV
+// ============================================================
+function showPanel(name) {
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+name).classList.add('active');
+  event.target.classList.add('active');
+  if(name==='progresso') renderProgresso();
+  if(name==='exportar') generateExport();
+  if(name==='certificado'){ populateCertSelect(); renderProgresso(); }
+  if(name==='presenca') renderPresenca();
+  if(name==='pessoas') renderPessoas();
+}
+
+// ============================================================
+// TOAST
+// ============================================================
+function toast(msg) {
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+// ============================================================
+// INIT
+// ============================================================
+load();
+initFridays();
+loadConfigUI();
+populateDateSelect();
+renderPessoas();
+
+// ============================================================
+// PWA — Service Worker + Install Prompt
+// ============================================================
+let deferredPrompt = null;
+
+function initPWA() {
+  // ── Register Service Worker ──────────────────────────────
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('[SW] Registered, scope:', reg.scope))
+        .catch(err => console.warn('[SW] Failed:', err));
+    });
+  }
+
+  // ── Offline / Online detection ───────────────────────────
+  const pill = document.getElementById('offlinePill');
+  function updateOnlineStatus() {
+    pill.classList.toggle('show', !navigator.onLine);
+  }
+  window.addEventListener('online', updateOnlineStatus);
+  window.addEventListener('offline', updateOnlineStatus);
+  updateOnlineStatus();
+
+  // ── Install prompt (Android / Chrome Desktop) ────────────
+  const dismissed = sessionStorage.getItem('cep-install-dismissed');
+  
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (!dismissed) {
+      setTimeout(() => {
+        document.getElementById('installBanner').classList.add('show');
+      }, 1800);
+    }
+  });
+
+  window.addEventListener('appinstalled', () => {
+    deferredPrompt = null;
+    document.getElementById('installBanner').classList.remove('show');
+    toast('✔ App instalado com sucesso!');
+  });
+
+  // ── iOS Safari hint ───────────────────────────────────────
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isInStandalone = ('standalone' in navigator) && navigator.standalone;
+  const iosDismissed = sessionStorage.getItem('cep-ios-dismissed');
+
+  if (isIOS && !isInStandalone && !iosDismissed) {
+    setTimeout(() => {
+      document.getElementById('iosHint').style.display = 'block';
+    }, 2000);
+  }
+}
+
+function triggerInstall() {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(choice => {
+    if (choice.outcome === 'accepted') {
+      toast('✔ Instalando o app...');
+    }
+    deferredPrompt = null;
+    document.getElementById('installBanner').classList.remove('show');
+  });
+}
+
+function dismissBanner() {
+  sessionStorage.setItem('cep-install-dismissed', '1');
+  document.getElementById('installBanner').classList.remove('show');
+}
+
+initPWA();
+
+</script>
+</body>
+</html>
